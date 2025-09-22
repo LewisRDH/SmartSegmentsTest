@@ -61,6 +61,64 @@
             height: 2rem;
             margin-left: 1.45rem;
         }
+        .page-tab {
+            border-radius: 9999px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            background-color: rgba(0, 63, 92, 0.08);
+            color: #003f5c;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+        .page-tab:hover {
+            background-color: rgba(0, 63, 92, 0.15);
+        }
+        .page-tab.active {
+            background-color: #003f5c;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.25), 0 4px 6px -4px rgb(0 0 0 / 0.2);
+        }
+        .page {
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .job-tag {
+            border-radius: 9999px;
+            padding: 0.4rem 1.25rem;
+            background-color: white;
+            border: 1px solid rgba(0, 63, 92, 0.2);
+            color: #003f5c;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .job-tag:hover {
+            background-color: rgba(0, 63, 92, 0.1);
+        }
+        .job-tag.active {
+            background-color: #58508d;
+            color: white;
+            border-color: #58508d;
+            box-shadow: 0 8px 12px -5px rgba(88, 80, 141, 0.5);
+        }
+        .logic-badge {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 9999px;
+            background-color: rgba(0, 63, 92, 0.1);
+            color: #003f5c;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -72,176 +130,230 @@
             <p class="text-lg text-[#58508d]">Unpacking the Mindsets, Motivations, and Pains of Athora's Customers</p>
         </header>
 
-        <main>
-            <section id="introduction" class="mb-16">
-                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
-                    <h2 class="text-3xl font-bold text-[#003f5c] mb-4 text-center">A Tale of Two Mindsets</h2>
-                    <p class="text-lg text-gray-600 mb-6 text-center max-w-3xl mx-auto">Our interviews revealed a deep split in how customers approach their finances. Pension planning isn't a one-size-fits-all journey; it's a landscape of diverse attitudes, behaviors, and emotional drivers. Understanding this duality is the first step toward smarter segmentation.</p>
+        <nav class="flex flex-wrap justify-center gap-3 mb-12">
+            <button type="button" class="page-tab active" data-page-target="overview">Mindsets &amp; Barriers</button>
+            <button type="button" class="page-tab" data-page-target="journey">Journey Signals</button>
+            <button type="button" class="page-tab" data-page-target="jobs">Jobs to Be Done</button>
+        </nav>
+
+        <main class="space-y-12">
+            <div class="page space-y-16" data-page="overview">
+                <section id="introduction">
+                    <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                        <h2 class="text-3xl font-bold text-[#003f5c] mb-4 text-center">A Tale of Two Mindsets</h2>
+                        <p class="text-lg text-gray-600 mb-6 text-center max-w-3xl mx-auto">Our interviews revealed a deep split in how customers approach their finances. Pension planning isn't a one-size-fits-all journey; it's a landscape of diverse attitudes, behaviors, and emotional drivers. Understanding this duality is the first step toward smarter segmentation.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="kpi-card border-t-4 border-[#bc5090]">
+                                <h3 class="text-2xl font-bold text-[#bc5090] mb-2">The Proactive Planner</h3>
+                                <p class="text-5xl font-bold text-gray-700 mb-4">📋</p>
+                                <p class="text-gray-600">Meticulous, organized, and control-oriented. These customers use spreadsheets and apps to manage every detail, seeking stress reduction through financial order. They desire granular control and sophisticated tools.</p>
+                            </div>
+                            <div class="kpi-card border-t-4 border-[#ffa600]">
+                                <h3 class="text-2xl font-bold text-[#ffa600] mb-2">The Present-Focused Intuitive</h3>
+                                <p class="text-5xl font-bold text-gray-700 mb-4">🏖️</p>
+                                <p class="text-gray-600">Guided by a "live for today" philosophy. They find complex tools overwhelming and prefer simplified, automated solutions that require minimal active management. Their focus is on lifestyle, not intricate financial mechanics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="mindsets">
+                    <h2 class="text-3xl font-bold text-[#003f5c] mb-6 text-center">Unpacking the Pension Mindset</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="kpi-card border-t-4 border-[#bc5090]">
-                            <h3 class="text-2xl font-bold text-[#bc5090] mb-2">The Proactive Planner</h3>
-                            <p class="text-5xl font-bold text-gray-700 mb-4">📋</p>
-                            <p class="text-gray-600">Meticulous, organized, and control-oriented. These customers use spreadsheets and apps to manage every detail, seeking stress reduction through financial order. They desire granular control and sophisticated tools.</p>
-                        </div>
-                        <div class="kpi-card border-t-4 border-[#ffa600]">
-                            <h3 class="text-2xl font-bold text-[#ffa600] mb-2">The Present-Focused Intuitive</h3>
-                            <p class="text-5xl font-bold text-gray-700 mb-4">🏖️</p>
-                            <p class="text-gray-600">Guided by a "live for today" philosophy. They find complex tools overwhelming and prefer simplified, automated solutions that require minimal active management. Their focus is on lifestyle, not intricate financial mechanics.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="mindsets" class="mb-16">
-                <h2 class="text-3xl font-bold text-[#003f5c] mb-6 text-center">Unpacking the Pension Mindset</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <h3 class="text-2xl font-bold text-center mb-4">Dominant Customer Feelings Towards Pensions</h3>
-                        <p class="text-gray-600 text-center mb-4">The overwhelming sentiment is not positive. A significant emotional barrier of uncertainty, skepticism, and a feeling of powerlessness leads to widespread disengagement. Phrases like "far-from-my-bed-show" and "uncertain factor" were common.</p>
-                        <div class="chart-container">
-                            <canvas id="pensionMindsetChart"></canvas>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <h3 class="text-2xl font-bold text-center mb-4">Risk Appetite: A Spectrum of Caution</h3>
-                         <p class="text-gray-600 text-center mb-4">Customers' willingness to invest is heavily influenced by past experiences and perceived control. While some are eager to invest, many view it as "gambling" and prioritize the security of savings accounts, even with lower returns.</p>
-                        <div class="chart-container">
-                            <canvas id="riskAppetiteChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="pain-points" class="mb-16">
-                 <h2 class="text-3xl font-bold text-[#003f5c] mb-6 text-center">The Five Great Walls of Pension Planning</h2>
-                 <p class="text-lg text-gray-600 mb-8 text-center max-w-3xl mx-auto">Customers face significant barriers on their journey. These five core pain points create a cycle of confusion, anxiety, and inaction that providers must break.</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                    <div class="kpi-card">
-                        <h3 class="text-xl font-bold text-[#003f5c] mb-2">Complexity</h3>
-                        <p class="text-4xl mb-3">🤯</p>
-                        <p class="text-gray-600">"I snap nothing of the system." Customers are overwhelmed by jargon and complicated processes.</p>
-                    </div>
-                    <div class="kpi-card">
-                        <h3 class="text-xl font-bold text-[#58508d] mb-2">Uncertainty</h3>
-                        <p class="text-4xl mb-3">👻</p>
-                        <p class="text-gray-600">"I'm afraid my pension might not exist." Fear of loss, inflation, and mismanagement is rampant.</p>
-                    </div>
-                    <div class="kpi-card">
-                        <h3 class="text-xl font-bold text-[#bc5090] mb-2">Passivity</h3>
-                        <p class="text-4xl mb-3">🤷</p>
-                        <p class="text-gray-600">"They don't take on an advisory role." Customers feel unsupported and desire proactive, personalized guidance.</p>
-                    </div>
-                    <div class="kpi-card">
-                        <h3 class="text-xl font-bold text-[#ff6361] mb-2">Admin Burden</h3>
-                        <p class="text-4xl mb-3">🗂️</p>
-                        <p class="text-gray-600">"Transferring my old pot is too much hassle." Cumbersome processes lead to frustration and disorganization.</p>
-                    </div>
-                     <div class="kpi-card">
-                        <h3 class="text-xl font-bold text-[#ffa600] mb-2">Distrust</h3>
-                        <p class="text-4xl mb-3">😒</p>
-                        <p class="text-gray-600">"Insurers have 'messed with' money." Historical issues have eroded trust, creating deep suspicion.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="jobs-to-be-done" class="mb-16">
-                 <h2 class="text-3xl font-bold text-[#003f5c] mb-6 text-center">Jobs to Be Done: The Real Reason Customers 'Hire' Athora</h2>
-                 <p class="text-lg text-gray-600 mb-8 text-center max-w-3xl mx-auto">Customers are not just buying financial products; they're hiring services to achieve a deeper goal. These are the core functional, emotional, and social jobs Athora can help them accomplish.</p>
-                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                    <div class="kpi-card">
-                        <h3 class="text-xl font-bold text-[#003f5c] mb-2">Gain a Holistic Overview</h3>
-                        <p class="text-4xl mb-3">📊</p>
-                        <p class="text-gray-600">**Functional Job:** Consolidate all financial pots into one clear view to understand their complete financial picture.</p>
-                    </div>
-                    <div class="kpi-card">
-                        <h3 class="text-xl font-bold text-[#58508d] mb-2">Feel Secure & Free from Worry</h3>
-                        <p class="text-4xl mb-3">🛡️</p>
-                        <p class="text-gray-600">**Emotional Job:** Alleviate financial stress and uncertainty, knowing their future and family are protected.</p>
-                    </div>
-                    <div class="kpi-card">
-                        <h3 class="text-xl font-bold text-[#bc5090] mb-2">Be a Responsible Family Member</h3>
-                        <p class="text-4xl mb-3">👨‍👩‍👧‍👦</p>
-                        <p class="text-gray-600">**Social Job:** Provide for their family, support their children's future, and ensure a stable legacy for the ones they love.</p>
-                    </div>
-                    <div class="kpi-card">
-                        <h3 class="text-xl font-bold text-[#ff6361] mb-2">Build Trust with a Partner</h3>
-                        <p class="text-4xl mb-3">🤝</p>
-                        <p class="text-gray-600">**Emotional Job:** Find a transparent and reliable partner who can be trusted with their financial future and sensitive decisions.</p>
-                    </div>
-                     <div class="kpi-card">
-                        <h3 class="text-xl font-bold text-[#ffa600] mb-2">Feel Empowered to Decide</h3>
-                        <p class="text-4xl mb-3">🚀</p>
-                        <p class="text-gray-600">**Functional & Emotional Job:** Understand their options and feel confident in making informed financial choices that align with their goals.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="triggers" class="mb-16">
-                <h2 class="text-3xl font-bold text-[#003f5c] mb-6 text-center">The Reactive Journey: Triggers for Action</h2>
-                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
-                    <p class="text-lg text-gray-600 mb-8 text-center max-w-3xl mx-auto">Pension planning is rarely proactive. Engagement is sparked by "moments of truth"—significant life events that force a financial re-evaluation. This highlights critical opportunities for providers to offer timely, relevant support.</p>
-                    <div class="max-w-2xl mx-auto">
-                        <div class="flow-step">
-                            <div class="flow-icon bg-[#003f5c]">🏠</div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-lg">Major Life Changes</h4>
-                                <p class="text-gray-600">Buying a home, getting divorced, or changing jobs are the most powerful catalysts for financial engagement.</p>
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h3 class="text-2xl font-bold text-center mb-4">Dominant Customer Feelings Towards Pensions</h3>
+                            <p class="text-gray-600 text-center mb-4">The overwhelming sentiment is not positive. A significant emotional barrier of uncertainty, skepticism, and a feeling of powerlessness leads to widespread disengagement. Phrases like "far-from-my-bed-show" and "uncertain factor" were common.</p>
+                            <div class="chart-container">
+                                <canvas id="pensionMindsetChart"></canvas>
                             </div>
                         </div>
-                        <div class="flow-line bg-[#58508d]"></div>
-                        <div class="flow-step">
-                            <div class="flow-icon bg-[#58508d]">👶</div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-lg">Family Growth</h4>
-                                <p class="text-gray-600">The birth of a child immediately shifts priorities towards long-term family security and savings.</p>
-                            </div>
-                        </div>
-                        <div class="flow-line bg-[#bc5090]"></div>
-                        <div class="flow-step">
-                            <div class="flow-icon bg-[#bc5090]">💔</div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-lg">Personal Crises</h4>
-                                <p class="text-gray-600">Health scares, accidents, or past financial trauma (like debt) create a powerful need for financial control and security.</p>
-                            </div>
-                        </div>
-                        <div class="flow-line bg-[#ff6361]"></div>
-                        <div class="flow-step">
-                            <div class="flow-icon bg-[#ff6361]">🗣️</div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-lg">External Information</h4>
-                                <p class="text-gray-600">Conversations with friends, news about inflation, or even a podcast can spark curiosity and a desire to act.</p>
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h3 class="text-2xl font-bold text-center mb-4">Risk Appetite: A Spectrum of Caution</h3>
+                            <p class="text-gray-600 text-center mb-4">Customers' willingness to invest is heavily influenced by past experiences and perceived control. While some are eager to invest, many view it as "gambling" and prioritize the security of savings accounts, even with lower returns.</p>
+                            <div class="chart-container">
+                                <canvas id="riskAppetiteChart"></canvas>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section id="expectations" class="mb-16">
-                <h2 class="text-3xl font-bold text-[#003f5c] mb-6 text-center">What Customers Truly Want</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <h3 class="text-2xl font-bold text-center mb-4">Retirement Dreams: More Than Just Money</h3>
-                        <p class="text-gray-600 text-center mb-4">Retirement goals are deeply personal and lifestyle-oriented. Customers want to translate abstract pension figures into tangible life experiences, with maintaining their current lifestyle as the top priority.</p>
-                        <div class="chart-container h-[400px] max-h-[450px]">
-                            <canvas id="retirementGoalsChart"></canvas>
+                <section id="pain-points">
+                    <h2 class="text-3xl font-bold text-[#003f5c] mb-6 text-center">The Five Great Walls of Pension Planning</h2>
+                    <p class="text-lg text-gray-600 mb-8 text-center max-w-3xl mx-auto">Customers face significant barriers on their journey. These five core pain points create a cycle of confusion, anxiety, and inaction that providers must break.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                        <div class="kpi-card">
+                            <h3 class="text-xl font-bold text-[#003f5c] mb-2">Complexity</h3>
+                            <p class="text-4xl mb-3">🤯</p>
+                            <p class="text-gray-600">"I snap nothing of the system." Customers are overwhelmed by jargon and complicated processes.</p>
+                        </div>
+                        <div class="kpi-card">
+                            <h3 class="text-xl font-bold text-[#58508d] mb-2">Uncertainty</h3>
+                            <p class="text-4xl mb-3">👻</p>
+                            <p class="text-gray-600">"I'm afraid my pension might not exist." Fear of loss, inflation, and mismanagement is rampant.</p>
+                        </div>
+                        <div class="kpi-card">
+                            <h3 class="text-xl font-bold text-[#bc5090] mb-2">Passivity</h3>
+                            <p class="text-4xl mb-3">🤷</p>
+                            <p class="text-gray-600">"They don't take on an advisory role." Customers feel unsupported and desire proactive, personalized guidance.</p>
+                        </div>
+                        <div class="kpi-card">
+                            <h3 class="text-xl font-bold text-[#ff6361] mb-2">Admin Burden</h3>
+                            <p class="text-4xl mb-3">🗂️</p>
+                            <p class="text-gray-600">"Transferring my old pot is too much hassle." Cumbersome processes lead to frustration and disorganization.</p>
+                        </div>
+                        <div class="kpi-card">
+                            <h3 class="text-xl font-bold text-[#ffa600] mb-2">Distrust</h3>
+                            <p class="text-4xl mb-3">😒</p>
+                            <p class="text-gray-600">"Insurers have 'messed with' money." Historical issues have eroded trust, creating deep suspicion.</p>
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <h3 class="text-2xl font-bold text-center mb-4">The Ideal Support Model: A Hybrid Approach</h3>
-                        <p class="text-gray-600 text-center mb-4">Customers don't want to choose between digital and human. They want the best of both: digital tools for convenience and overview, and empathetic human advisors for complex, trust-based conversations.</p>
-                        <div class="chart-container">
-                            <canvas id="supportModelChart"></canvas>
+                </section>
+            </div>
+
+            <div class="page space-y-16 hidden" data-page="journey">
+                <section id="triggers">
+                    <h2 class="text-3xl font-bold text-[#003f5c] mb-6 text-center">The Reactive Journey: Triggers for Action</h2>
+                    <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                        <p class="text-lg text-gray-600 mb-8 text-center max-w-3xl mx-auto">Pension planning is rarely proactive. Engagement is sparked by "moments of truth"—significant life events that force a financial re-evaluation. This highlights critical opportunities for providers to offer timely, relevant support.</p>
+                        <div class="max-w-2xl mx-auto">
+                            <div class="flow-step">
+                                <div class="flow-icon bg-[#003f5c]">🏠</div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold text-lg">Major Life Changes</h4>
+                                    <p class="text-gray-600">Buying a home, getting divorced, or changing jobs are the most powerful catalysts for financial engagement.</p>
+                                </div>
+                            </div>
+                            <div class="flow-line bg-[#58508d]"></div>
+                            <div class="flow-step">
+                                <div class="flow-icon bg-[#58508d]">👶</div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold text-lg">Family Growth</h4>
+                                    <p class="text-gray-600">The birth of a child immediately shifts priorities towards long-term family security and savings.</p>
+                                </div>
+                            </div>
+                            <div class="flow-line bg-[#bc5090]"></div>
+                            <div class="flow-step">
+                                <div class="flow-icon bg-[#bc5090]">💔</div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold text-lg">Personal Crises</h4>
+                                    <p class="text-gray-600">Health scares, accidents, or past financial trauma (like debt) create a powerful need for financial control and security.</p>
+                                </div>
+                            </div>
+                            <div class="flow-line bg-[#ff6361]"></div>
+                            <div class="flow-step">
+                                <div class="flow-icon bg-[#ff6361]">🗣️</div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold text-lg">External Information</h4>
+                                    <p class="text-gray-600">Conversations with friends, news about inflation, or even a podcast can spark curiosity and a desire to act.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <footer class="text-center mt-12 py-8 border-t border-gray-300">
-                <h2 class="text-3xl font-bold text-[#003f5c] mb-4">The Path Forward for Athora</h2>
-                <p class="text-lg text-gray-600 max-w-4xl mx-auto">The opportunity is clear: shift from being a passive pension holder to a proactive financial partner. By embracing psychographic segmentation, simplifying communication, and offering a hybrid support model, Athora can break the cycle of disengagement, build trust, and empower customers to achieve the future they envision.</p>
-            </footer>
+                <section id="expectations">
+                    <h2 class="text-3xl font-bold text-[#003f5c] mb-6 text-center">What Customers Truly Want</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h3 class="text-2xl font-bold text-center mb-4">Retirement Dreams: More Than Just Money</h3>
+                            <p class="text-gray-600 text-center mb-4">Retirement goals are deeply personal and lifestyle-oriented. Customers want to translate abstract pension figures into tangible life experiences, with maintaining their current lifestyle as the top priority.</p>
+                            <div class="chart-container h-[400px] max-h-[450px]">
+                                <canvas id="retirementGoalsChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h3 class="text-2xl font-bold text-center mb-4">The Ideal Support Model: A Hybrid Approach</h3>
+                            <p class="text-gray-600 text-center mb-4">Customers don't want to choose between digital and human. They want the best of both: digital tools for convenience and overview, and empathetic human advisors for complex, trust-based conversations.</p>
+                            <div class="chart-container">
+                                <canvas id="supportModelChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
+                <section>
+                    <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                        <h2 class="text-3xl font-bold text-[#003f5c] mb-4 text-center">The Path Forward for Athora</h2>
+                        <p class="text-lg text-gray-600 max-w-4xl mx-auto text-center">The opportunity is clear: shift from being a passive pension holder to a proactive financial partner. By embracing psychographic segmentation, simplifying communication, and offering a hybrid support model, Athora can break the cycle of disengagement, build trust, and empower customers to achieve the future they envision.</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="page space-y-16 hidden" data-page="jobs">
+                <section>
+                    <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                        <h2 class="text-3xl font-bold text-[#003f5c] mb-4 text-center">Jobs to Be Done: The Real Reason Customers 'Hire' Athora</h2>
+                        <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto">Customers are not just buying financial products; they're hiring services to achieve a deeper goal. Use the logic tags below to explore the key jobs that unlock meaningful segmentation and reveal the moments where Athora can intervene.</p>
+                    </div>
+                </section>
+
+                <section id="job-segmentation">
+                    <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div>
+                                <h3 class="text-2xl font-bold text-[#003f5c]">Select a Job to Be Done</h3>
+                                <p class="text-gray-600 mt-2">Each tag represents a distinct trigger or mindset. Selecting a job will reveal the segment fit, critical needs, and recommended nudges to convert intent into action.</p>
+                                <div class="flex flex-wrap gap-3 mt-6" id="jobTagList">
+                                    <button type="button" class="job-tag active" data-job="buy-home">Buying a First Home</button>
+                                    <button type="button" class="job-tag" data-job="consolidate-pensions">Consolidating Old Pensions</button>
+                                    <button type="button" class="job-tag" data-job="plan-early-retirement">Planning Early Retirement</button>
+                                    <button type="button" class="job-tag" data-job="protect-family">Protecting Family Stability</button>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-2 space-y-6">
+                                <div class="bg-[#f7fafc] border border-[#d1d9e6] rounded-xl p-6">
+                                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                                        <h4 class="text-2xl font-bold text-[#003f5c]" id="selectedJobTitle">Buying a First Home</h4>
+                                        <div class="flex flex-wrap gap-2" id="selectedJobTags"></div>
+                                    </div>
+                                    <p class="text-gray-600" id="selectedJobDescription">A life-event trigger where customers juggle mortgage advice, savings, and insurance decisions. They need reassurance that pension choices won't derail the purchase.</p>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="p-5 border border-[#d1d9e6] rounded-xl bg-white/60">
+                                        <h5 class="text-lg font-semibold text-[#58508d] mb-2">Primary Mindset Fit</h5>
+                                        <p class="text-gray-700" id="selectedJobPersona">Present-Focused Intuitive seeking confident guidance during a high-stakes decision.</p>
+                                    </div>
+                                    <div class="p-5 border border-[#d1d9e6] rounded-xl bg-white/60">
+                                        <h5 class="text-lg font-semibold text-[#58508d] mb-2">Trigger Moment</h5>
+                                        <p class="text-gray-700" id="selectedJobMoment">Triggered when mortgage conversations start and cash-flow anxiety peaks.</p>
+                                    </div>
+                                    <div class="p-5 border border-[#d1d9e6] rounded-xl bg-white/60 md:col-span-2">
+                                        <h5 class="text-lg font-semibold text-[#58508d] mb-2">Desired Outcome</h5>
+                                        <p class="text-gray-700" id="selectedJobOutcome">A step-by-step plan that aligns savings, insurance, and pension contributions around the purchase timeline.</p>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="p-5 border border-[#d1d9e6] rounded-xl bg-white/60">
+                                        <h5 class="text-lg font-semibold text-[#003f5c] mb-3">What They Need from Athora</h5>
+                                        <ul class="list-disc pl-5 space-y-2 text-gray-600" id="selectedJobNeeds">
+                                            <li>Step-by-step guidance that links the mortgage process to long-term pension health.</li>
+                                            <li>Reassurance that they can pause or adjust contributions without losing ground.</li>
+                                            <li>Fast access to a human advisor for complex questions.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="p-5 border border-[#d1d9e6] rounded-xl bg-white/60">
+                                        <h5 class="text-lg font-semibold text-[#003f5c] mb-3">Recommended Nudges &amp; Offers</h5>
+                                        <ul class="list-disc pl-5 space-y-2 text-gray-600" id="selectedJobNudges">
+                                            <li>Home-buying readiness checklist that captures assets, liabilities, and protection gaps.</li>
+                                            <li>Bundle mortgage protection with a pension review in one coordinated appointment.</li>
+                                            <li>Personalised alerts explaining tax advantages of keeping contributions on track.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                        <h3 class="text-2xl font-bold text-[#003f5c] mb-4 text-center">Operationalising the Segments</h3>
+                        <p class="text-gray-600 text-center max-w-3xl mx-auto">Map each job to data signals—life-event flags, contribution behaviour, and contact preferences—to trigger bespoke journeys. Pair the logic tags with CRM rules and empower teams to see the customer's intent, not just their product holdings.</p>
+                    </div>
+                </section>
+            </div>
         </main>
+
     </div>
 
     <script>
@@ -271,7 +383,7 @@
             }
             return label;
         };
-        
+
         const chartColors = {
             main: '#003f5c',
             secondary: '#58508d',
@@ -303,7 +415,7 @@
                     },
                     tooltip: {
                         callbacks: {
-                           title: tooltipTitleCallback
+                            title: tooltipTitleCallback
                         }
                     }
                 }
@@ -318,7 +430,7 @@
                 datasets: [{
                     label: 'Risk Appetite Level',
                     data: [40, 30, 20, 10],
-                    backgroundColor: [chartColors.accent3, chartColors.ff6361, chartColors.secondary, chartColors.main],
+                    backgroundColor: [chartColors.accent3, chartColors.accent2, chartColors.secondary, chartColors.main],
                     borderRadius: 4
                 }]
             },
@@ -329,12 +441,12 @@
                 scales: {
                     x: {
                         beginAtZero: true,
-                         grid: {
+                        grid: {
                             display: false
                         }
                     },
                     y: {
-                         grid: {
+                        grid: {
                             display: false
                         }
                     }
@@ -345,7 +457,7 @@
                     },
                     tooltip: {
                         callbacks: {
-                           title: tooltipTitleCallback
+                            title: tooltipTitleCallback
                         }
                     }
                 }
@@ -368,8 +480,8 @@
                         'rgba(255, 99, 97, 0.7)',
                         'rgba(255, 166, 0, 0.7)'
                     ],
-                     borderColor: [chartColors.main, chartColors.secondary, chartColors.accent1, chartColors.accent2, chartColors.accent3],
-                     borderWidth: 2,
+                    borderColor: [chartColors.main, chartColors.secondary, chartColors.accent1, chartColors.accent2, chartColors.accent3],
+                    borderWidth: 2,
                 }]
             },
             options: {
@@ -378,10 +490,10 @@
                 scales: {
                     r: {
                         ticks: {
-                           display: false
+                            display: false
                         },
                         grid: {
-                           circular: true
+                            circular: true
                         }
                     }
                 },
@@ -391,7 +503,7 @@
                     },
                     tooltip: {
                         callbacks: {
-                           title: tooltipTitleCallback
+                            title: tooltipTitleCallback
                         }
                     }
                 }
@@ -418,7 +530,7 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                 scales: {
+                scales: {
                     r: {
                         angleLines: {
                             display: true
@@ -438,12 +550,176 @@
                     },
                     tooltip: {
                         callbacks: {
-                           title: tooltipTitleCallback
+                            title: tooltipTitleCallback
                         }
                     }
                 }
             }
         });
+
+        const pageButtons = document.querySelectorAll('[data-page-target]');
+        const pages = document.querySelectorAll('[data-page]');
+
+        const activatePage = (pageName) => {
+            pages.forEach(page => {
+                if (page.dataset.page === pageName) {
+                    page.classList.remove('hidden');
+                } else {
+                    page.classList.add('hidden');
+                }
+            });
+
+            pageButtons.forEach(button => {
+                if (button.dataset.pageTarget === pageName) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+        };
+
+        pageButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                activatePage(button.dataset.pageTarget);
+            });
+        });
+
+        const jobSegments = {
+            'buy-home': {
+                title: 'Buying a First Home',
+                description: 'A life-event trigger where customers juggle mortgage advice, savings, and insurance decisions. They need reassurance that pension choices will not derail the purchase.',
+                logicTags: ['Life Event Trigger', 'High Emotional Stakes', 'Needs Rapid Guidance'],
+                persona: 'Present-Focused Intuitive seeking confident guidance during a high-stakes decision.',
+                moment: 'Triggered when mortgage conversations start and cash-flow anxiety peaks.',
+                outcome: 'A step-by-step plan that aligns savings, insurance, and pension contributions around the purchase timeline.',
+                needs: [
+                    'Step-by-step guidance that links the mortgage process to long-term pension health.',
+                    'Reassurance that they can pause or adjust contributions without losing ground.',
+                    'Fast access to a human advisor for complex questions.'
+                ],
+                nudges: [
+                    'Home-buying readiness checklist that captures assets, liabilities, and protection gaps.',
+                    'Bundle mortgage protection with a pension review in one coordinated appointment.',
+                    'Personalised alerts explaining tax advantages of keeping contributions on track.'
+                ]
+            },
+            'consolidate-pensions': {
+                title: 'Consolidating Old Pensions',
+                description: 'After a job change, customers want everything in one view but dread the admin. They look for a trustworthy guide to simplify transfers.',
+                logicTags: ['Job Change Trigger', 'Organisation Drive', 'Seeks Frictionless Admin'],
+                persona: 'Proactive Planner who wants control and visibility without paperwork headaches.',
+                moment: 'Activated when a new employer onboards them or annual statements arrive.',
+                outcome: 'Confidence that every legacy pot is mapped, transferred, and optimised in a single dashboard.',
+                needs: [
+                    'Clear comparison of fees, returns, and risks across existing pension pots.',
+                    'Digital-first transfer workflow with progress tracking and nudges when signatures are needed.',
+                    'Reassurance that there is a safety net if something goes wrong during the transfer.'
+                ],
+                nudges: [
+                    'Send a “life admin sprint” invitation immediately after an employment change is detected.',
+                    'Provide a digital concierge who handles provider outreach and keeps the customer informed.',
+                    'Offer incentives for completing consolidation within a 30-day window (e.g., free review session).'
+                ]
+            },
+            'plan-early-retirement': {
+                title: 'Planning Early Retirement',
+                description: 'High-intent planners who want to model scenarios, tax implications, and lifestyle trade-offs to leave work sooner.',
+                logicTags: ['High Financial Literacy', 'Future-Oriented', 'Seeks Scenario Planning'],
+                persona: 'Proactive Planner motivated by optimisation and long-term security.',
+                moment: 'Begins around age 55 when they receive projections or inherit wealth.',
+                outcome: 'A personalised glidepath that balances risk, drawdown strategy, and desired lifestyle upgrades.',
+                needs: [
+                    'Advanced modelling tools that show the impact of increasing contributions or shifting asset allocation.',
+                    'Access to a specialist advisor for tax and estate planning questions.',
+                    'Clear articulation of trade-offs between retiring earlier and maintaining lifestyle expectations.'
+                ],
+                nudges: [
+                    'Trigger a “Retire 5 Years Sooner?” campaign when savings rate exceeds benchmarks.',
+                    'Invite them to a masterclass on optimising drawdown and hybrid income products.',
+                    'Provide periodic readiness scores that celebrate progress and highlight next best actions.'
+                ]
+            },
+            'protect-family': {
+                title: 'Protecting Family Stability',
+                description: 'Caregivers balancing present expenses with future security. They need reassurance that their family is covered if something unexpected happens.',
+                logicTags: ['Caregiving Pressure', 'Seeks Reassurance', 'Values Human Empathy'],
+                persona: 'Hybrid mindset—intuitive by default but willing to engage deeply if empathy and clarity are present.',
+                moment: 'Prompted by the birth of a child, caring for elderly parents, or after a health scare.',
+                outcome: 'Confidence that insurance, savings, and pension beneficiaries create a resilient safety net.',
+                needs: [
+                    'Plain-language explanations of coverage gaps and how to close them.',
+                    'Ability to simulate “what if” scenarios for family emergencies.',
+                    'Option to schedule recurring check-ins with the same advisor for continuity.'
+                ],
+                nudges: [
+                    'Send a “family safety review” invitation when dependents or beneficiaries are updated.',
+                    'Bundle life insurance and pension beneficiary updates in one guided workflow.',
+                    'Offer a digital family vault that stores critical documents and prompts annual reviews.'
+                ]
+            }
+        };
+
+        const jobTitleEl = document.getElementById('selectedJobTitle');
+        const jobDescriptionEl = document.getElementById('selectedJobDescription');
+        const jobTagsEl = document.getElementById('selectedJobTags');
+        const jobPersonaEl = document.getElementById('selectedJobPersona');
+        const jobMomentEl = document.getElementById('selectedJobMoment');
+        const jobOutcomeEl = document.getElementById('selectedJobOutcome');
+        const jobNeedsEl = document.getElementById('selectedJobNeeds');
+        const jobNudgesEl = document.getElementById('selectedJobNudges');
+        const jobButtons = document.querySelectorAll('[data-job]');
+
+        const renderJobDetails = (jobId) => {
+            const job = jobSegments[jobId];
+            if (!job) {
+                return;
+            }
+
+            jobTitleEl.textContent = job.title;
+            jobDescriptionEl.textContent = job.description;
+            jobPersonaEl.textContent = job.persona;
+            jobMomentEl.textContent = job.moment;
+            jobOutcomeEl.textContent = job.outcome;
+
+            jobTagsEl.innerHTML = '';
+            job.logicTags.forEach(tag => {
+                const badge = document.createElement('span');
+                badge.className = 'logic-badge';
+                badge.textContent = tag;
+                jobTagsEl.appendChild(badge);
+            });
+
+            jobNeedsEl.innerHTML = '';
+            job.needs.forEach(need => {
+                const item = document.createElement('li');
+                item.textContent = need;
+                jobNeedsEl.appendChild(item);
+            });
+
+            jobNudgesEl.innerHTML = '';
+            job.nudges.forEach(nudge => {
+                const item = document.createElement('li');
+                item.textContent = nudge;
+                jobNudgesEl.appendChild(item);
+            });
+
+            jobButtons.forEach(button => {
+                if (button.dataset.job === jobId) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+        };
+
+        jobButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                renderJobDetails(button.dataset.job);
+            });
+        });
+
+        activatePage('overview');
+        renderJobDetails('buy-home');
     </script>
 </body>
 </html>
